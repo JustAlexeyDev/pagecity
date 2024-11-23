@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './LastNews.css';
+import ip from '../../config';
 
 const LastNews = () => {
     const [newsData, setNewsData] = useState([]);
 
     useEffect(() => {
         // Fetch data from the API
-        fetch('http://localhost:8000/api/News')
+        fetch(`${ip}api/News`)
             .then(response => response.json())
             .then(data => setNewsData(data))
             .catch(error => console.error('Error fetching news:', error));
