@@ -37,7 +37,7 @@ const swaggerOptions = {
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 
-// Basic Auth for Swagger UI
+// Basic Auth 
 app.use(
   '/api-docs',
   basicAuth({
