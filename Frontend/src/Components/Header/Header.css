@@ -1,41 +1,63 @@
-.header--container{
+.Header--Container{
     display: flex;
     height:80px;
     width:100%;
     margin-left: auto;
     margin-right: auto;
     justify-content: center;
+    align-self: center
 }
-.header--container_icon{
-    height: 50px;
-    width: 50px;
-    background-color: aqua;
+.Header--Container_Icon{
+    height: 60px;
+    width: 60px;
+    background-image: url(../../Assets/Images/kjuj.svg);
+    background-size: 100% 100%;
     margin-top: 12px;
-    margin-left: 20%;
+    margin-left: 17%;
 }
-.header--container_link{
+.Header--Container_Link{
     margin-top: 24px;
-    margin-left: 1px;
+    margin-left: 2%;
     color: black;
-    margin-left: 30px;
 }
-.header--container_link_orange{
+.Header--Container_Link_Orange{
     margin-top: 24px;
     color: black;
-    margin-left: 50px;
+    margin-left: 2%;
 }
-.header--container_link-cabinet{
+.Header--Container_Link-Cabinet{
     margin-left: auto;
-    margin-right: 20%;
+    margin-right: 17%;
     margin-top: 24px;
     color: black;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight:580;
 }
-.header--container_link-text{
+.Header--Container_Link-Text{
     color: black;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight:580;
 }
-.header--container_link_orange_text{
+.Header--Container_Link_Orange_Text{
     color: #FF5A30;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight:580;
+}
+.Headermini--Container{
+    display: none;
+
+}
+@media screen and (max-width: 1430px){
+    .Header--Container{
+        display: none;
+    }
+    .Headermini--Container{
+        display: flex;
+        height:80px;
+        width:100%;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: center;
+        align-self: center
+    }
 }
