@@ -23,8 +23,8 @@ const swaggerOptions = {
     openapi: '3.0.0',
     info: {
       title: 'Customer Feedback API',
-      version: '1.0.0',
-      description: 'API for managing customer feedback and admin actions',
+      version: 'ALPHA',
+      description: 'API for MPIT 2024',
     },
     servers: [
       {
