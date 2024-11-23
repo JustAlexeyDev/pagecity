@@ -1,0 +1,25 @@
+{
+  "name": "pagecity",
+  "version": "1.0.0",
+  "description": "Site for MPIT 2024",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JustAlexeyDev/pagecity.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JustAlexeyDev/pagecity/issues"
+  },
+  "homepage": "https://github.com/JustAlexeyDev/pagecity#readme",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-scripts": "^5.0.1"
+  }
+}
