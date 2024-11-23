@@ -1,12 +1,12 @@
-const express = require('express');
-const nodemailer = require('nodemailer');
-const multer = require('multer');
-const bodyParser = require('body-parser');
-const swaggerJsDoc = require('swagger-jsdoc');
-const swaggerUi = require('swagger-ui-express');
+import express, { Request, Response } from 'express';
+import nodemailer from 'nodemailer';
+import multer from 'multer';
+import bodyParser from 'body-parser';
+import swaggerJsDoc from 'swagger-jsdoc';
+import swaggerUi from 'swagger-ui-express';
 
 const app = express();
-const port = 3000;
+const port: number = 8000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -17,8 +17,8 @@ const upload = multer({ storage: storage });
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'example@gmail.com',
-        pass: 'your-app-password' 
+        user: 'just.alexdev@gmail.com', 
+        pass: ''  
     }
 });
 
@@ -27,17 +27,17 @@ const swaggerOptions = {
     swaggerDefinition: {
         info: {
             title: 'Жалобы API',
-            version: '1.0.0',
+            version: 'BETA',
             description: 'API для отправки жалоб на почту',
         },
     },
-    apis: ['server.js'],
+    apis: ['server.ts'],
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
-app.get('/', (req, res) => {
+app.get('/', (req: Request, res: Response) => {
     res.redirect('/api-docs');
 });
 
@@ -73,11 +73,11 @@ app.get('/', (req, res) => {
  *       200:
  *         description: Сообщение успешно отправлено
  *       500:
- *         description: Ошибка отправки сообщения
+ *         description: Пидар бля опять накосячил
  */
-app.post('/submit-complaint', upload.single('media'), (req, res) => {
+app.post('/submit-complaint', upload.single('media'), (req: Request, res: Response) => {
     const { name, phone, email, text } = req.body;
-    const media = req.file;
+    const media = req.file as Express.Multer.File | undefined;
 
     const mailOptions = {
         from: `${email}`,
@@ -90,10 +90,10 @@ app.post('/submit-complaint', upload.single('media'), (req, res) => {
         }] : []
     };
 
-    transporter.sendMail(mailOptions, (error, info) => {
+    transporter.sendMail(mailOptions, (error: Error | null, info: nodemailer.SentMessageInfo) => {
         if (error) {
             console.error('Ошибка отправки сообщения:', error);
-            res.status(500).json({ message: 'Ошибка отправки сообщения', error: error.message });
+            res.status(500).json({ message: 'Пидар бля опять накосячил', error: error.message });
         } else {
             console.log('Email sent: ' + info.response);
             res.status(200).json({ message: 'Сообщение успешно отправлено' });
@@ -102,5 +102,5 @@ app.post('/submit-complaint', upload.single('media'), (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Сервер запущен на http://localhost:${port}`);
+    console.log(`Сервер слушается по адресу http://localhost:${port}`);
 });
