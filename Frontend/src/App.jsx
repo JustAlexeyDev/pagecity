@@ -1,10 +1,13 @@
-import Button from "./Components/Button/Button";
+import {Routes, Route} from 'react-router-dom';
+import Home from './Pages/Home';
+import NotFound from './Pages/NotFound';
 const App = () => {
     return(
-        <div>
-            App
-            <Button text={"Hello"}></Button>
-        </div>
+        <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/Home' element={<Home />} />
+            <Route path='/*' element={<NotFound />} />
+        </Routes>
     );
 }
 export default App;
