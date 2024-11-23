@@ -1,0 +1,14 @@
+.VideoBlock--Container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 2.083vw;
+}
+.VideoBlock--Container__VideoPlayer iframe {
+    width: 64.063vw;
+    height: 26.042vw;
+}
