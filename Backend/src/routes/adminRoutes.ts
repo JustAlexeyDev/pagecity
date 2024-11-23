@@ -1,7 +1,16 @@
 import express from 'express';
+import basicAuth from 'express-basic-auth';
 import { sendReply } from '../controllers/adminController';
 
 const router = express.Router();
+
+// Basic Auth for admin routes
+router.use(
+  basicAuth({
+    users: { admin: 'admin' },
+    challenge: true,
+  })
+);
 
 /**
  * @swagger
