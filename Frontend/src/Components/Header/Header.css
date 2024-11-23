@@ -1,0 +1,10 @@
+.Header--Container {
+    display: flex;
+    width: 100%;
+    padding: 16px;
+    justify-content: space-around;
+}
+.Header--Container__Nav--Block {
+    display: flex;
+    gap: 40px;
+}
