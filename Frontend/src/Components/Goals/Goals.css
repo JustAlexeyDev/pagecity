@@ -1,20 +1,3 @@
-.Goals--Container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 100vw;
-    height: 100vh;
-    gap: 2.083vw;
-}
-.Goals--Container h1 {
-    font-size: 2.396vw;
-}
-.Goals--Container p {
-    font-size: 0.938vw;
-    color: var(--second--color);
-}
 
 .Goals--Container__Card {
     display: flex;
