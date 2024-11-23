@@ -8,20 +8,17 @@ const swaggerUi = require('swagger-ui-express');
 const app = express();
 const port = 3000;
 
-// Настройка body-parser для обработки данных формы
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// Настройка multer для загрузки файлов
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-// Настройка Nodemailer для отправки писем
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'example@gmail.com', // Ваша почта
-        pass: 'yourpassword' // Ваш пароль
+        user: 'example@gmail.com',
+        pass: 'your-app-password' 
     }
 });
 
@@ -34,11 +31,15 @@ const swaggerOptions = {
             description: 'API для отправки жалоб на почту',
         },
     },
-    apis: ['server.js'], // Укажите файл, где находятся ваши маршруты
+    apis: ['server.js'],
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
+app.get('/', (req, res) => {
+    res.redirect('/api-docs');
+});
 
 /**
  * @swagger
@@ -52,13 +53,9 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
  *       - in: body
  *         name: complaint
  *         description: Данные жалобы
+ *         required: true
  *         schema:
  *           type: object
- *           required:
- *             - name
- *             - phone
- *             - email
- *             - text
  *           properties:
  *             name:
  *               type: string
@@ -83,8 +80,8 @@ app.post('/submit-complaint', upload.single('media'), (req, res) => {
     const media = req.file;
 
     const mailOptions = {
-        from: 'example@gmail.com',
-        to: 'example@gmail.com',
+        from: `${email}`,
+        to: 'just.alexdev@gmail.com',
         subject: 'Жалоба с лендинг сайта',
         text: `Имя: ${name}\nТелефон: ${phone}\nПочта: ${email}\nТекст: ${text}`,
         attachments: media ? [{
@@ -95,8 +92,8 @@ app.post('/submit-complaint', upload.single('media'), (req, res) => {
 
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
-            console.log(error);
-            res.status(500).json({ message: 'Ошибка отправки сообщения' });
+            console.error('Ошибка отправки сообщения:', error);
+            res.status(500).json({ message: 'Ошибка отправки сообщения', error: error.message });
         } else {
             console.log('Email sent: ' + info.response);
             res.status(200).json({ message: 'Сообщение успешно отправлено' });
@@ -104,7 +101,6 @@ app.post('/submit-complaint', upload.single('media'), (req, res) => {
     });
 });
 
-// Запуск сервера
 app.listen(port, () => {
     console.log(`Сервер запущен на http://localhost:${port}`);
 });
