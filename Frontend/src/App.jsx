@@ -5,7 +5,7 @@ import NotFound from './Pages/NotFound';
 
 const App = () => {
     return(
-        <div className='Debug'>
+        <div className=' Page'>
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/Home' element={<Home />} />
