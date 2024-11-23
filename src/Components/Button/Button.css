@@ -1,0 +1,10 @@
+.Button--Container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 12px;
+    background-color: #1d1d1d;
+    color: #fff;
+    border-radius: 8px;
+}
