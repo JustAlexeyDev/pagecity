@@ -1,8 +1,9 @@
+import Button from "./Components/Button/Button";
 const App = () => {
     return(
         <div>
             App
-            <button>asjfhishjfiu</button>
+            <Button text={"Hello"}></Button>
         </div>
     );
 }
