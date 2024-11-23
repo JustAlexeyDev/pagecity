@@ -1,0 +1,63 @@
+.Header--Container{
+    display: flex;
+    height:80px;
+    width:100%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-self: center
+}
+.Header--Container_Icon{
+    height: 60px;
+    width: 60px;
+    background-image: url(../../Assets/Images/kjuj.svg);
+    background-size: 100% 100%;
+    margin-top: 12px;
+    margin-left: 17%;
+}
+.Header--Container_Link{
+    margin-top: 24px;
+    margin-left: 2%;
+    color: black;
+}
+.Header--Container_Link_Orange{
+    margin-top: 24px;
+    color: black;
+    margin-left: 2%;
+}
+.Header--Container_Link-Cabinet{
+    margin-left: auto;
+    margin-right: 17%;
+    margin-top: 24px;
+    color: black;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight:580;
+}
+.Header--Container_Link-Text{
+    color: black;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight:580;
+}
+.Header--Container_Link_Orange_Text{
+    color: #FF5A30;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight:580;
+}
+.Headermini--Container{
+    display: none;
+
+}
+@media screen and (max-width: 1430px){
+    .Header--Container{
+        display: none;
+    }
+    .Headermini--Container{
+        display: flex;
+        height:80px;
+        width:100%;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: center;
+        align-self: center
+    }
+}
