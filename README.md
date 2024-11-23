@@ -4,17 +4,21 @@
 |---------------|---------------------------|
 |Менеджер        |Прудецкий Антон     |
 |Дизайнер  |Гоголев Максим        |
-|Разработчик	| Коротких Алексей |
-|Разработчик | Игнатьев Радомир |
+|Backend Разработчик	| Коротких Алексей |
+|Frontend Разработчик | Игнатьев Радомир |
 
 ### Технологии:
 - Языки
 - JavaScript
+- TypeScript
 - JSX
 - HTML
 - CSS
+- jquery
+- bootstrapcdn
+- jsdelivr
 
-### Фреймворки
+### JavaScript runtime environment
 - Nodejs
 
 База данных
@@ -26,10 +30,12 @@ SQLite3
 - `npm install` или `npm i` (Установка зависимостей)
 - `npm start` (Запуск сервера)
 ## Установка и запуск Backend части:
-1. Скачайте и установите [python 3.10](https://www.python.org/downloads/release/python-31011/). Во время установки вам будет предложено добавить python в PATH, согласитесь.
+1. Скачайте и установите [NodeJS](https://nodejs.org/). 
 2. Скопируйте репозиторий (Если уже не сделали этого)
 ```
-git clone https://github.com/JustAlexeyDev/Netler.git
+git clone https://github.com/JustAlexeyDev/pagecity.git
 ```
-4. Переместитесь в папку *backend*:
+4. Переместитесь в папку *Backend*:
+```
+npx ts-node src/server.ts
 ```
