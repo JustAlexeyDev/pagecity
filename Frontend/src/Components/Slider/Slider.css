@@ -1,0 +1,69 @@
+.Slider--Container {
+    background-image: url('../../Assets/Images/bg-image.svg'); 
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Slider--Container__Content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: start;
+    max-width: 80%; 
+    color: #fff;
+    gap: 100px;
+    width: 100vw;
+}
+.Slider--Container__Content--Text {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 31.25vw;
+}
+.Slider--Container h1 {
+    font-size: 3.75vw;
+}
+.Slider--Container p {
+    font-size: 1.042vw;
+}
+.Slider--Container__Content--Buttons {
+    display: flex;
+    gap: 2.083vw;
+}
+.Slider--Container__Content--FirstButton {
+    border: 2px solid #fff;
+    border-radius: 4px;
+    padding: 1.042vw;
+    font-weight: 900;
+}
+.Slider--Container__Content--SecondButton {
+    font-weight: 900;
+}
+
+@media (max-width: 1000px) {
+    .Slider--Container__Content {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: start;
+        max-width: 80%; 
+        color: #fff;
+        gap: 100px;
+        width: 100vw;
+    }
+    .Slider--Container__Content--Text {
+        width: 100%;
+    }
+    .Slider--Container h1 {
+        font-size: 6.667vw;
+    }
+    .Slider--Container p {
+        font-size: 1.875vw;
+    }
+}
