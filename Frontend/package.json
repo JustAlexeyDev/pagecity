@@ -4,7 +4,7 @@
   "description": "Site for MPIT 2024",
   "main": "index.jsx",
   "scripts": {
-    "start": "cross-env HOST=0.0.0.0 react-scripts start"
+    "start": "react-scripts start"
   },
   "keywords": [],
   "author": "",
