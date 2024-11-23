@@ -15,7 +15,7 @@
     transition: all;
     transition: 0.1s;
     -ms-interpolation-mode: bicubic;
--webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 /* Links */
