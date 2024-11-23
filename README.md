@@ -10,11 +10,15 @@
 ### Технологии:
 - Языки
 - JavaScript
+- TypeScript
 - JSX
 - HTML
 - CSS
+- jquery
+- bootstrapcdn
+- jsdelivr
 
-### Фреймворки
+### JavaScript runtime environment
 - Nodejs
 
 База данных
