@@ -6,7 +6,7 @@ import slippers from '../../Assets/Images/goals/ic-slippers.svg';
 
 const Goals = () => {
     return(
-        <div className="Goals--Container">
+        <div className="Goals--Container Component">
             <div>
                 <h1>Наши основные цели</h1>
                 <p>Наша миссия – устанавливать самые высокие стандарты в строительной сфере.</p>
