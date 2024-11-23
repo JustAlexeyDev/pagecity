@@ -12,3 +12,6 @@
     width: 64.063vw;
     height: 26.042vw;
 }
+.VideoBlock--Container p {
+    color: var(--second--color);
+}
