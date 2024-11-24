@@ -1,12 +1,13 @@
-const Feedback = require('../models/Feedback');
+// feedbackController.js
+import Feedback from '../models/Feedback.js';
 
-const submitFeedback = async (req, res) => {
+export const submitFeedback = async (req, res) => {
   const { text } = req.body;
   const feedback = await Feedback.create({ text });
   res.json(feedback);
 };
 
-const respondFeedback = async (req, res) => {
+export const respondFeedback = async (req, res) => {
   const { id } = req.params;
   const { response } = req.body;
   const feedback = await Feedback.findByPk(id);
@@ -18,5 +19,3 @@ const respondFeedback = async (req, res) => {
     res.status(404).json({ message: 'Feedback not found' });
   }
 };
-
-module.exports = { submitFeedback, respondFeedback };
