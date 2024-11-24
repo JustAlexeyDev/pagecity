@@ -1,4 +1,3 @@
-// News.js
 import { DataTypes } from 'sequelize';
 import sequelize from '../config/db.js';
 
@@ -18,6 +17,10 @@ const News = sequelize.define('News', {
   date: {
     type: DataTypes.DATE,
     allowNull: false
+  },
+  imageUrl: { 
+    type: DataTypes.STRING,
+    allowNull: true
   }
 });
 
