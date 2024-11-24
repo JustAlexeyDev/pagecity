@@ -1,5 +1,6 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../config/db');
+// Feedback.js
+import { DataTypes } from 'sequelize';
+import sequelize from '../config/db.js';
 
 const Feedback = sequelize.define('Feedback', {
   text: {
@@ -12,4 +13,4 @@ const Feedback = sequelize.define('Feedback', {
   }
 });
 
-module.exports = Feedback;
+export default Feedback;
