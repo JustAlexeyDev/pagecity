@@ -1,10 +1,12 @@
-const express = require('express');
-const multer = require('multer');
-const { createNews, createCategory } = require('../controllers/adminController');
-const authenticate = require('../middlewares/authMiddleware');
-
+// adminRoutes.js
+import express from 'express';
+import multer from 'multer';
+import { createNews, createCategory } from '../controllers/adminController.js';
+import { authenticateAdmin } from '../middlewares/authMiddleware.js';
 const upload = multer({ dest: 'uploads/' });
 const router = express.Router();
+
+router.use(authenticateAdmin);
 
 /**
  * @swagger
@@ -44,7 +46,7 @@ const router = express.Router();
  *       401:
  *         description: Unauthorized
  */
-router.post('/news', authenticate, upload.single('media'), createNews);
+router.post('/news', upload.single('media'), createNews);
 
 /**
  * @swagger
@@ -74,6 +76,9 @@ router.post('/news', authenticate, upload.single('media'), createNews);
  *       401:
  *         description: Unauthorized
  */
-router.post('/category', authenticate, createCategory);
+router.post('/category', (req, res) => {
+  createCategory(req, res);
+  res.status(200).json({ message: 'News created' });
+});
 
-module.exports = router;
+export default router;
