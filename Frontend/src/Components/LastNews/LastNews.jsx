@@ -22,7 +22,7 @@ const LastNews = () => {
                 {newsData.length > 0 ? (
                     <>
                         <div className='LastNews--Coontainer__NewsList--NewsBig'>
-                            <img src={newsData[0].imageUrl} alt='photo' />
+                            <img src={`${ip}api/news/uploads/${newsData[0].media}`} alt='photo' />
                             <div className='LastNews--Coontainer__NewsList__Content'>
                                 <h2>{newsData[0].title}</h2>
                                 <div>
@@ -34,19 +34,19 @@ const LastNews = () => {
                         </div>
 
                         <div className='LastNews--Coontainer__NewsList--Mini'>
-                            {newsData.slice(1, 3).map(news => (
-                                <div key={news.id} className='LastNews--Coontainer__NewsList--News'>
-                                    <img src={news.imageUrl} alt='photo' />
-                                    <div className='LastNews--Coontainer__NewsList__Content'>
-                                        <h2>{news.title}</h2>
-                                        <div>
-                                            <p>{news.category}</p>
-                                            <p>{new Date(news.date).toLocaleDateString('ru-RU', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
-                                            <p>{news.comments === 0 ? 'Без комментариев' : `${news.comments} комментариев`}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
+                        {newsData.slice(1, 3).map(news => (
+                        <div key={news.id} className='LastNews--Coontainer__NewsList--News'>
+                            <img src={`${ip}api/news/${newsData[0].media}`} alt='photo' />
+                            <div className='LastNews--Coontainer__NewsList__Content'>
+                            <h2>{news.title}</h2>
+                            <div>
+                                <p>{news.category}</p>
+                                <p>{new Date(news.date).toLocaleDateString('ru-RU', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                                <p>{news.comments === 0 ? 'Без комментариев' : `${news.comments} комментариев`}</p>
+                            </div>
+                            </div>
+                        </div>
+                        ))}
                         </div>
                     </>
                 ) : (
