@@ -1,3 +1,5 @@
+import {ip, serverPort} from './config/config';
+
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 
@@ -7,11 +9,11 @@ const options = {
     info: {
       title: 'News API',
       version: '1.0.0',
-      description: 'API for managing news and feedback'
+      description: 'API'
     },
     servers: [
       {
-        url: 'http://localhost:8000'
+        url: `${ip}${serverPort}`
       }
     ],
     components: {
