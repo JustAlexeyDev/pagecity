@@ -22,7 +22,7 @@ const LastNews = () => {
                 {newsData.length > 0 ? (
                     <>
                         <div className='LastNews--Coontainer__NewsList--NewsBig'>
-                            <img src={newsData[0].imageUrl || 'https://specpartner.ru/upload/news/bashkrian.jpeg'} alt='photo' />
+                            <img src={newsData[0].imageUrl} alt='photo' />
                             <div className='LastNews--Coontainer__NewsList__Content'>
                                 <h2>{newsData[0].title}</h2>
                                 <div>
@@ -36,7 +36,7 @@ const LastNews = () => {
                         <div className='LastNews--Coontainer__NewsList--Mini'>
                             {newsData.slice(1, 3).map(news => (
                                 <div key={news.id} className='LastNews--Coontainer__NewsList--News'>
-                                    <img src={news.imageUrl || 'https://specpartner.ru/upload/news/bashkrian.jpeg'} alt='photo' />
+                                    <img src={news.imageUrl} alt='photo' />
                                     <div className='LastNews--Coontainer__NewsList__Content'>
                                         <h2>{news.title}</h2>
                                         <div>
@@ -62,4 +62,4 @@ const LastNews = () => {
     );
 }
 
-export default LastNews;
+export default LastNews; 
