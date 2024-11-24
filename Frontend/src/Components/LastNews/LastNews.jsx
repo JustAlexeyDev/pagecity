@@ -6,7 +6,6 @@ const LastNews = () => {
     const [newsData, setNewsData] = useState([]);
 
     useEffect(() => {
-        // Fetch data from the API
         fetch(`${ip}api/News`)
             .then(response => response.json())
             .then(data => setNewsData(data))
