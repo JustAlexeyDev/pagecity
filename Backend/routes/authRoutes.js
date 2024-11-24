@@ -1,5 +1,6 @@
-const express = require('express');
-const { login } = require('../controllers/authController');
+// authRoutes.js
+import express from 'express';
+import { login } from '../controllers/authController.js';
 
 const router = express.Router();
 
@@ -36,4 +37,19 @@ const router = express.Router();
  */
 router.post('/login', login);
 
-module.exports = router;
+/**
+ * @swagger
+ * /api/login:
+ *   get:
+ *     summary: Display login page
+ *     tags:
+ *       - Authentication
+ *     responses:
+ *       200:
+ *         description: Login page
+ */
+router.get('/login', (req, res) => {
+  res.send('Login page');
+});
+
+export default router;
