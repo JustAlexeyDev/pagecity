@@ -1,18 +1,26 @@
-const jwt = require('jsonwebtoken');
+// authController.js
+import jwt from 'jsonwebtoken';
+import User from '../models/User.js';
 
-const authenticate = (req, res, next) => {
-  const token = req.headers['authorization'];
-  if (token) {
-    jwt.verify(token, 'secret_key', (err, decoded) => {
-      if (err) {
-        return res.status(401).json({ message: 'Invalid token' });
-      }
-      req.userId = decoded.userId;
-      next();
-    });
+export const login = async (req, res) => {
+  console.log('Request body:', req.body);
+
+  const { username, password } = req.body;
+
+  if (!username) {
+    return res.status(400).json({ message: 'Username is required' });
+  }
+
+  const user = await User.findOne({ where: { username } });
+  if (user && user.password === password) {
+    const token = jwt.sign({ userId: user.id }, 'secret_key');
+    res.json({ token });
   } else {
-    res.status(401).json({ message: 'Token not provided' });
+    res.status(401).json({ message: 'Invalid credentials' });
   }
 };
 
-module.exports = authenticate;
+export const authenticateAdmin = (req, res, next) => {
+  // Your authentication logic here
+  next();
+};
