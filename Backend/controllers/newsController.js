@@ -1,8 +1,7 @@
-const News = require('../models/News');
+// newsController.js
+import News from '../models/News.js';
 
-const getNews = async (req, res) => {
+export const getNews = async (req, res) => {
   const news = await News.findAll();
   res.json(news);
 };
-
-module.exports = { getNews };
