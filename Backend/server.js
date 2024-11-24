@@ -1,3 +1,5 @@
+import { ip, serverPort } from './config/config';
+
 const express = require('express');
 const sequelize = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
@@ -7,7 +9,7 @@ const feedbackRoutes = require('./routes/feedbackRoutes');
 const swagger = require('./swagger');
 
 const app = express();
-const PORT = 8000;
+const PORT = serverPort;
 
 app.use(express.json());
 app.use('/api', authRoutes);
@@ -23,6 +25,6 @@ app.get('/', (req, res) => {
 
 sequelize.sync().then(() => {
   app.listen(PORT, () => {
-    console.log(`СЕРВЕР СЛУШАЕТСЯ ПО АДРЕСУ http://localhost:${PORT}`);
+    console.log(`СЕРВЕР СЛУШАЕТСЯ ПО АДРЕСУ ${ip}${PORT}`);
   });
 });
