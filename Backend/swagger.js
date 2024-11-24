@@ -1,10 +1,9 @@
-import {ip, serverPort} from './config/config';
-
-const swaggerJsDoc = require('swagger-jsdoc');
-const swaggerUi = require('swagger-ui-express');
+import swaggerJsDoc from 'swagger-jsdoc';
+import swaggerUi from 'swagger-ui-express';
+import { ip, serverPort } from './config.js';
 
 const options = {
-  definition: {
+  swaggerDefinition: {
     openapi: '3.0.0',
     info: {
       title: 'News API',
@@ -13,15 +12,14 @@ const options = {
     },
     servers: [
       {
-        url: `${ip}${serverPort}`
+        url: `http://localhost:${serverPort}`
       }
     ],
     components: {
       securitySchemes: {
-        BearerAuth: {
+        BasicAuth: {
           type: 'http',
-          scheme: 'bearer',
-          bearerFormat: 'JWT'
+          scheme: 'basic'
         }
       },
       schemas: {
@@ -68,6 +66,23 @@ const options = {
 
 const specs = swaggerJsDoc(options);
 
-module.exports = (app) => {
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+export default (app) => {
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs, {
+    explorer: true,
+    swaggerOptions: {
+      authAction: {
+        BasicAuth: {
+          name: 'BasicAuth',
+          schema: {
+            type: 'http',
+            in: 'header',
+            name: 'Authorization',
+            scheme: 'basic',
+            description: 'Enter your username and password'
+          },
+          value: 'Basic ' + Buffer.from('admin:admin').toString('base64')
+        }
+      }
+    }
+  }));
 };
