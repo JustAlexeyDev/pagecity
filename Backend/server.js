@@ -31,6 +31,8 @@ app.use('/admin', basicAuth({
 app.use('/api', newsRoutes);
 app.use('/api', feedbackRoutes);
 
+app.use('/api/news/uploads', express.static(path.join(__dirname, 'uploads')));
+
 swagger(app);
 
 app.get('/', (req, res) => {
